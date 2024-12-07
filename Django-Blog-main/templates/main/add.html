@@ -1,0 +1,13 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    <section class="form-section">
+        <form method="post" class="form-container">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.as_p }}
+            </div>
+            <input type="submit" value="Submit" class="btn submit-btn">
+        </form>
+    </section>
+{% endblock %}

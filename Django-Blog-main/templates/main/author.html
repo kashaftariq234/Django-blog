@@ -1,0 +1,19 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    <section class="author-details">
+        <h1>{{ author.name }}</h1>
+        <h2>Articles by {{ author.name }}</h2>
+        <ul class="article-list">
+            {% for article in author.article_set.all %}
+            <li>
+                <a href="{% url 'article' article.id %}">{{ article.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <div class="actions">
+        <a class="btn" href="{% url 'edit_author' author.id %}">Edit this Author</a>
+    </div>
+{% endblock %}
